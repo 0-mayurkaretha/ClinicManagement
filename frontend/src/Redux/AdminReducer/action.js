@@ -744,6 +744,24 @@ const getAllFilteredAppointments = (data, queryParams) => async (dispatch) => {
 }
 
 
+//get all users
+const getAllUsers = (data) => async (dispatch) => {
+    dispatch({ type: types.GET_ALL_USERS_PROCESSING });
+
+    try {
+        const result = await axios.get(`${END_POINT}/configAccess?search=${data.search}&page=${data.page}&limit=${data.limit}`, {
+            headers: {
+                Authorization: getJwtToken()
+            }
+        });
+        // successfully added
+        dispatch({ type: types.GET_ALL_USERS_SUCCESS, payload: result.data });
+
+    } catch (error) {
+        // fail to add Patient
+        dispatch({ type: types.GET_ALL_USERS_FAIL, payload: "Somthing Went Wrong!" });
+    }
+}
 
 
 export {
@@ -751,4 +769,5 @@ export {
     END_POINT, UploadFile, RemoveFile, addNewPrescription, getAllPatientPrescription, addNewDoctor, addNewPatient, getAllDoctor, deleteDoctor, getSingleDoctor, updateDoctor, getAllReceptionist, getSingleReceptionist, deleteReceptionist, getAllPatient, deletePatient, updatePatient, getSinglePatient, addNewConsultant, getAllConsultant, deleteConsultant, getSingleConsultant, updateConsultant,
     addNewAppointment, addNewEnquiry, getAllAppointment, getAllDoctor_External, getAllAppointment_External,
     getSinglePatientFetch, UploadFiles, getAllFilteredAppointments, getJwtToken
+    ,getAllUsers
 };

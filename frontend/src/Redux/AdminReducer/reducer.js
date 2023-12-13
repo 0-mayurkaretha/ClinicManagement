@@ -23,6 +23,12 @@ const initialState = {
     getAllDoctorMessage: "",
     getAllDoctorData: {},
 
+    getAllUsersProcessing: false,
+    getAllUsersSuccess: false,
+    getAllUsersFail: false,
+    getAllUsersMessage: "",
+    getAllUsersData: {},
+
     deleteDoctorProcessing: false,
     deleteDoctorSuccess: false,
     deleteDoctorFail: false,
@@ -265,6 +271,34 @@ export const reducer = (state = initialState, action) => {
                 getAllDoctorFail: true,
                 getAllDoctorMessage: "",
                 getAllDoctorData: payload,
+            };
+        
+        case types.GET_ALL_USERS_PROCESSING:
+            return {
+                ...state,
+                getAllUsersProcessing: true,
+                getAllUsersSuccess: false,
+                getAllUsersFail: false,
+                getAllUsersMessage: "",
+                getAllUsersData: {},
+            };
+        case types.GET_ALL_USERS_SUCCESS:
+            return {
+                ...state,
+                getAllUsersProcessing: false,
+                getAllUsersSuccess: true,
+                getAllUsersFail: false,
+                getAllUsersMessage: "",
+                getAllUsersData: payload,
+            };
+        case types.GET_ALL_USERS_FAIL:
+            return {
+                ...state,
+                getAllUsersProcessing: false,
+                getAllUsersSuccess: false,
+                getAllUsersFail: true,
+                getAllUsersMessage: "",
+                getAllUsersData: payload,
             };
 
         case types.UPDATE_DOCTOR_PROCESSING:

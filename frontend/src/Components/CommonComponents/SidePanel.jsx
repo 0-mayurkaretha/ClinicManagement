@@ -4,6 +4,7 @@ import { AiFillAccountBook, AiOutlineHome, AiOutlineInfoCircle, AiOutlineMail } 
 import AdminDashboard from '../../Routes/AdminRoutes/AdminDashboard';
 import { GrContact, GrDashboard, GrLogout, GrUserWorker } from 'react-icons/gr';
 import { IoLogOut } from 'react-icons/io5';
+import { MdOutlineSecurity } from "react-icons/md";
 import { GiChest, GiDoctorFace, GiPerson, GiPersonInBed, GiSergeant } from 'react-icons/gi';
 import { BsPerson } from 'react-icons/bs';
 import { IoMdLogOut } from 'react-icons/io';
@@ -26,6 +27,7 @@ const SidePanel = () => {
     { id: 6, text: 'Enqiury', to: '/enquiry', icon: <GrContact /> },
     { id: 7, text: 'Income & Expn', to: '/income_expenses', icon: <AiFillAccountBook /> },
     { id: 8, text: 'Inventory', to: '/main/inventory/inventory/addNew', icon: <GiChest /> },
+    { id: 9, text: 'Permissions', to: '/permissions', icon: <MdOutlineSecurity /> },
   ];
 
   return (

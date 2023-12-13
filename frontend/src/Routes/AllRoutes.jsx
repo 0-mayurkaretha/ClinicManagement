@@ -31,6 +31,8 @@ import DistributorForm from './Inventory/DistributorForm';
 import DistributorCompaniesList from './Inventory/companiesFormList';
 import OrderForm from './Inventory/OrderForm';
 import ReturnForm from './Inventory/ReturnForm';
+import UsersPermissions from './AdminRoutes/UserPermissions'
+import EditPermissions from './AdminRoutes/EditPermissions'
 
 export default function AllRoutes() {
   return (
@@ -55,6 +57,23 @@ export default function AllRoutes() {
             element={
               <PrivateRoute allowedRoles={['SuperAdmin']}>
                 <EnquiryForm />{' '}
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/permissions"
+            element={
+              <PrivateRoute allowedRoles={['SuperAdmin']}>
+                {' '}
+                <UsersPermissions />{' '}
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/permissions/:username"
+            element={
+              <PrivateRoute allowedRoles={['SuperAdmin']}>
+                <EditPermissions />{' '}
               </PrivateRoute>
             }
           />
