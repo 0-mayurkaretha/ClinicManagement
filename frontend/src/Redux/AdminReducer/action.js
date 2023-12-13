@@ -9,10 +9,14 @@ if (process.env.NODE_ENV === 'development') {
     END_POINT = "http://127.0.0.1:5000"
 }
 else if (process.env.NODE_ENV === 'production') {
-    END_POINT = "https://api.adityahomoeopathicclinic.com"
-}
-else {
-    END_POINT = "https://clinic-management-1nq8-sam890s-projects.vercel.app/"
+    if (process.env.TWO_ENV == 'VERCEL') {
+        END_POINT = "https://clinic-management-1nq8-sam890s-projects.vercel.app/"
+
+    }
+    else {
+        END_POINT = "https://api.adityahomoeopathicclinic.com"
+    }
+
 }
 
 // END_POINT = "http://127.0.0.1:5000"
@@ -769,5 +773,5 @@ export {
     END_POINT, UploadFile, RemoveFile, addNewPrescription, getAllPatientPrescription, addNewDoctor, addNewPatient, getAllDoctor, deleteDoctor, getSingleDoctor, updateDoctor, getAllReceptionist, getSingleReceptionist, deleteReceptionist, getAllPatient, deletePatient, updatePatient, getSinglePatient, addNewConsultant, getAllConsultant, deleteConsultant, getSingleConsultant, updateConsultant,
     addNewAppointment, addNewEnquiry, getAllAppointment, getAllDoctor_External, getAllAppointment_External,
     getSinglePatientFetch, UploadFiles, getAllFilteredAppointments, getJwtToken
-    ,getAllUsers
+    , getAllUsers
 };
